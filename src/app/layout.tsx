@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import AdminSidebar from '@/components/AdminSideBar';
 import ThemeRegistry from '@/components/theme-registry/theme.registry';
 import MenuIcon from "@mui/icons-material/Menu";
 import IconButton from "@mui/material/IconButton";
@@ -19,7 +18,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en">
-      <body style={{ margin: 0, padding: 0 }}>
+      {/* <body style={{ margin: 0, padding: 0 }}> */}
+      <body >
         <ThemeRegistry>
           <Layout children={children} />
         </ThemeRegistry>

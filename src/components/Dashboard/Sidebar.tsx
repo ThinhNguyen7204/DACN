@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Drawer, List, ListItem, ListItemIcon, ListItemText, Toolbar, Divider, IconButton } from "@mui/material";
+import { Drawer, List, ListItem, ListItemIcon, ListItemText, Toolbar, Divider, IconButton, useColorScheme } from "@mui/material";
 import PeopleIcon from "@mui/icons-material/People";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import PolicyIcon from "@mui/icons-material/Policy";
@@ -10,7 +10,7 @@ import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 
-const SIDEBAR_WIDTH = 260;
+const SIDEBAR_WIDTH = 210;
 
 const menuItems = [
     { text: "Danh sách nhân sự", icon: <PeopleIcon /> },
@@ -27,19 +27,19 @@ interface IProps {
 
 export default function AdminSidebar(props: IProps) {
     const { open, setOpen } = props
+    const { mode, setMode } = useColorScheme();
 
     return (
         <Drawer
-            variant="persistent"
-            anchor="left"
+            // variant="persistent"
             open={open}
             sx={{
-                width: open ? SIDEBAR_WIDTH : 0,
+                width: open ? SIDEBAR_WIDTH : 50,
                 flexShrink: 0,
                 [`& .MuiDrawer-paper`]: {
                     width: SIDEBAR_WIDTH,
                     boxSizing: "border-box",
-                    background: "#1a2a42",
+                    background: mode === 'dark' ? "#1a2a42" : "grey",
                     color: "#fff",
                     transition: "width 0.3s",
                 },
